@@ -1,4 +1,4 @@
-# 🎵 YTM PiP Lyrics Pro
+# 🎵 YTM PiP Lyrics
 
 A lightweight, high-performance Chrome Extension that brings floating lyrics experience directly to YouTube Music via the Document Picture-in-Picture (PiP) API.
 
@@ -35,7 +35,7 @@ Since this extension is not yet published on the Chrome Web Store, you can insta
 - `pip-style.css`: The stylesheet injected into the PiP window to style the lyrics, header, and controls.
 - `icon*.png`: The extension icons.
 
-## 💡 How it Works (The 144Hz Secret)
+## 💡 How it Works
 Standard `video.currentTime` updates from the browser only fire about 4 times per second (250ms delay). This causes micro-stutters on high refresh rate monitors. This extension bypasses that limitation by utilizing `performance.now()` as a micro-stopwatch to predict the remaining milliseconds between YouTube's updates, feeding that data into a Linear Interpolation (LERP) algorithm that drives a CSS `transform` via `requestAnimationFrame`. The result is a flawless 144Hz compatible scroll.
 
 ---
