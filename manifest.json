@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "YTM PiP Lyrics",
+  "version": "1.0.0",
+  "description": "Lirik YouTube Music floating ala Apple Music dengan auto-scroll smooth 60fps.",
+  
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://music.youtube.com/*"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": ["pip-style.css"],
+      "matches": ["*://music.youtube.com/*"]
+    }
+  ]
+}

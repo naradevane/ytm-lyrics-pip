@@ -1,0 +1,185 @@
+/* ==========================================
+   YTM PIP LYRICS PRO - STYLESHEET
+   ========================================== */
+
+/* --- 1. BASE & TYPOGRAPHY --- */
+body {
+  background-color: #0f0f0f;
+  color: #9ca3af; 
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 24px;
+  margin: 0;
+  overflow: hidden; 
+  user-select: none; 
+  -webkit-user-select: none;
+  font-size: 24px; 
+  font-weight: 500; 
+  line-height: 1.6;
+  letter-spacing: -0.5px; 
+  white-space: pre-wrap;
+  text-align: center;
+}
+
+/* Hilangkan semua scrollbar bawaan */
+html, body, * {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  background: transparent !important;
+}
+
+/* --- 2. LYRICS CONTAINER & HIGHLIGHT --- */
+#lyrics-content {
+  padding-top: 50vh; 
+  padding-bottom: 25vh; 
+  will-change: transform; 
+}
+
+.lyric-line {
+  transition: all 0.3s ease;
+  opacity: 0.5; 
+  transform: scale(0.95);
+  padding: 4px 12px;
+  margin: 4px 0;
+  border-radius: 8px;
+}
+
+.lyric-line.active {
+  opacity: 1; 
+  transform: scale(1.1); 
+  font-weight: 700; 
+  color: #ffffff;
+}
+
+/* --- 3. HEADER INFO (SONG & ARTIST) --- */
+.song-info-container {
+  position: fixed;
+  top: 6px;  
+  left: 12px; 
+  z-index: 100;
+  opacity: 0.5; 
+  transition: opacity 0.3s ease;
+  pointer-events: none; 
+  max-width: 70%; 
+  display: flex;
+  align-items: center;
+  gap: 12px; 
+}
+
+body:hover .song-info-container {
+  opacity: 1;
+}
+
+.album-cover {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px; 
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  display: none; 
+}
+
+.song-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden; 
+  text-align: left; 
+}
+
+.song-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+
+.song-artist {
+  font-size: 14px;
+  font-weight: 500;
+  color: #9ca3af;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- 4. MEDIA CONTROLS --- */
+.controls-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(15, 15, 15, 0) 0%, rgba(15, 15, 15, 0.95) 45%, rgba(15, 15, 15, 1) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; 
+  gap: 20px; 
+  padding: 15px 0;
+  padding-top: 60px; 
+  opacity: 0;
+  transform: translateY(15px); 
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.controls-container:hover {
+  opacity: 1;
+  transform: translateY(0); 
+}
+
+.ctrl-btn {
+  background-color: rgba(255, 255, 255, 0.05); 
+  border: 1px solid rgba(255, 255, 255, 0.1); 
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 36px;  
+  height: 36px;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+.ctrl-btn:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: scale(1.08); 
+}
+
+.ctrl-btn:active {
+  animation: popClick 0.3s ease;
+}
+
+.ctrl-btn svg {
+  width: 30px; 
+  height: 30px;
+  fill: currentColor; 
+}
+
+#pip-play-btn {
+  background-color: rgba(255, 255, 255, 0.1); 
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#pip-play-btn:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+#pip-play-btn svg {
+  width: 32px; 
+  height: 32px;
+}
+
+@keyframes popClick {
+  0% { transform: scale(1.08); }
+  50% { transform: scale(0.9); }
+  100% { transform: scale(1.08); }
+}
